@@ -1,0 +1,99 @@
+﻿@model List<hanmudo.Models.UserViewModel>
+@using hanmudo.Utiliteis
+@{
+    ViewData["Title"] = "Students";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+
+<div style="width: 90%;margin: auto;">
+     <input id="myInput" type="text" placeholder="Search.."><br>    <br>
+    <p>
+        @Html.ActionLink("افزودن هنرجو جدید","AddOrEditStudent","Admin3")
+    </p><br>
+    <table id="myTable" class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                    نام
+                </th>
+                <th>
+                    نام کاربری
+                </th>
+                <th>
+                    کلمه عبور
+                </th>
+                <th>
+                    رده
+                </th>
+                 <th>
+                    مقررات
+                </th>
+                <th>
+                    تاریخ انقضا
+                </th>
+                <th>
+                  
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User.Password)
+                    </td>
+                    <td>
+                         @Html.DisplayFor(modelItem => item.belt)
+                    </td>
+                       <td>
+                         @Html.DisplayFor(modelItem => item.User.ConfirmRules)
+                    </td>
+                    <td>
+                        @Utility.DateBuilder(item.User.Expire.ToShamsi())
+                    </td>
+                    <td>
+                        @Html.ActionLink("ویرایش","AddOrEditStudent","Admin3",new
+                    {Id=item.User.Id},new {@class="m-2 btn btn-secondary"})
+                        <button class="btn btn-warning" onclick="deleteUser(@item.User.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function deleteUser(id) {
+        if (confirm('آیا هنرجو حذف شود')) {
+            window.location.href = '/Admin3/deleteUser/' + id;
+        }
+    }
+      window.addEventListener("pageshow", function (event) {
+            var historyTraversal = event.persisted ||
+                (typeof window.performance != "undefined" &&
+                    window.performance.navigation.type === 2);
+            if (historyTraversal) {
+                window.location.reload();
+            }
+        });
+
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+</script>
+</div>

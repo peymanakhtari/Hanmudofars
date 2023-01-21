@@ -1,0 +1,33 @@
+﻿@model List<hanmudo.Models.Darian>
+@{
+    ViewData["Title"] = "آموزش مبارزات";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<partial name="~/Views/Shared/UserPanelTopBar.cshtml" />
+
+<br>
+<h1 style="font-family: shabnam;text-align: center;font-weight: bold;font-size: 1.4rem ;">آموزش مبارزات   </h1>
+@if (Model.Count()==0)
+{
+    <br><br>
+     
+    <h3 style="font-family: shabnam;font-weight: bold;margin: 1rem 2rem">    محتوای این صفحه زودی تکمیل می‌گردد    </h3>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+}
+@foreach (var item in Model)
+{
+    <h3 style="font-family: shabnam;font-weight: bold;margin: 1rem 2rem;font-size: 1.15rem;">@item.Title</h3>
+    <video style="margin: auto;margin-top: .8rem;" controlsList="nodownload" autostart="false" class="video_darian" controls>
+    <source src="/galery/darian/@item.video" type="video/mp4"></video>
+    <p style="margin: 1rem 2rem 0 2rem;font-family: bkoodak;font-size: 1.1rem;line-height: 1.6rem;text-align: justify;">@item.Description</p>
+}

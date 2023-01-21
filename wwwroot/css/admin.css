@@ -1,0 +1,11 @@
+.form_Event .form-group label{
+margin: .5rem;
+}
+#adminForm{
+max-width:20rem;
+margin:auto
+
+}
+#adminForm input{
+    margin: 1rem;
+}

@@ -1,0 +1,63 @@
+﻿@using hanmudo.Models
+@model hanmudo.Models.Darian
+@{
+    ViewData["Title"] = "AddOrEditVideoDarian";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-11">
+
+
+        <form id="formvideo" enctype="multipart/form-data" class="me-5 form_Event" method="post" asp-action="AddOrEditVideoDarian">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+                  <div class="form-group">
+                <label asp-for="Title" class="control-label">عنوان</label>
+                <input  asp-for="Title" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">ویدیو</label>
+                <input id="vidoefile" name="vid" type="file" class="form-control" />
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label">ترتیب</label>
+                <input id="seq" asp-for="Sequence" class="form-control" required />
+            </div>
+            <br>
+               <div class="form-group">
+                <label asp-for="Description" class="control-label">توضیحات</label>
+                <textarea  asp-for="Description" class="form-control" cols="30" rows="4"  ></textarea>
+            </div>
+            <br>
+
+            <br>
+
+
+            <div class="form-group">
+                <input id="btnsubmit" onclick="upload(this)" type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<video width="300px" height="200px" type="video/mp4" id="video"></video>
+<div class="m-4">
+    <a href="javascript:history.back()">بازگشت</a><br><br>
+</div>
+
+
+
+<script>
+    function upload(elm) {
+
+        if ($('#seq').val() != '') {
+
+            document.getElementById('btnsubmit').disabled = true;
+             document.getElementById('btnsubmit').value='در حال آپلود...'
+            document.getElementById('formvideo').submit();
+        }
+    }
+</script>

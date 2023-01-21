@@ -1,0 +1,35 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0px;
+    background: #0e0e0e;
+}
+
+img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%)
+}
+
+span {
+    display: inline-block;
+    position: absolute;
+    top: 2.3vh;
+    right:1rem;
+    margin-right:2rem;
+    color: white;
+    background-color: red;
+    font-size: 4rem;
+    padding: 4px 1.2rem;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+    span:hover {
+        background-color: darkred
+    }

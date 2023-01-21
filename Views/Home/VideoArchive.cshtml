@@ -1,0 +1,24 @@
+﻿@model List<hanmudo.Models.Video>
+@{
+     ViewData["description"]="آموزش پیشرفته ترین فنون دفاع شخصی وقفل مفصل در شیراز";
+    ViewData["Title"] = "آرشیو ویدیو";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+
+    </div>
+</div>
+<h1 style="font-size:1.3rem;font-family: shabnam;font-weight: bold;" class="text-center">آرشیو ویدیو</h1>
+<div class="video_div">
+    @foreach (var item in Model)
+    {
+        <div class="video_archive_item">
+            @Html.Raw(item.Text)
+        </div>
+    }
+</div>

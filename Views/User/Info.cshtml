@@ -1,0 +1,46 @@
+﻿@model IEnumerable<hanmudo.Models.InfoUserViewModel>
+@{
+    ViewData["Title"] = "Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="~/Views/Shared/UserPanelTopBar.cshtml" />
+
+<br><br>
+
+@foreach (var item in Model)
+{
+    if (item.seen)
+    {
+        <div class="Info_User_div">
+            <h2>
+                @item.infoUser.Title
+            </h2>
+            <p>@Html.Raw(item.infoUser.Text.Replace("*","<br>"))</p>
+            <span style="background-color: green">خوانده شده</span>
+        </div>
+    }
+    else
+    {
+        <div class="Info_User_div">
+            <h2>
+                @item.infoUser.Title
+            </h2>
+            <p >@Html.Raw(item.infoUser.Text.Replace("*","<br>"))<br><br>
+                <div  style="font-family: shabnam;font-weight: bold;">بعد از مطالعه متن فوق دکمه ذیل را لمس کنید</div>
+            </p><br>
+            <button class="btn btn-success" onclick="InfoIsSeen(@item.infoUser.Id,'@item.infoUser.Title')">مطالعه شد</button>
+            <span style="background-color: red">خوانده نشده</span>
+        </div>
+    }
+}
+
+<Script>
+    function InfoIsSeen(id,title){ 
+    Swal.fire({
+        title: ` ${title} را  مطالعه نمودم`,
+        icon: 'success',
+        confirmButtonText: 'متوجه شدم'
+    }).then(() => { location.href = "/User/InfoIsSeen/" +id })
+    }
+</Script>

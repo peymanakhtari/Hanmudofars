@@ -1,0 +1,59 @@
+﻿@model IEnumerable<hanmudo.Models.Photo>
+@{
+    ViewData["Title"] = "Photos";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div style="width: 90%;margin: auto;">
+
+    <p>
+        <a asp-action="AddOrEditPhoto">افزودن عکس جدید</a>
+    </p><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+
+                <th>
+                    عکس
+                </th>
+                <th>
+                    ترتیب
+                </th>
+                <th>
+                    صفحه اصلی
+                </th>
+                <th>
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img style="max-width:8rem" src="/galery/photo/@item.text" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sequence)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MainPage)
+                    </td>
+                    <td>
+                        <a class="m-2 btn btn-secondary" href="/Admin/AddOrEditPhoto/@item.Id">ویرایش</a>
+                        <button class="btn btn-warning" onclick="deletePhoto(@item.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function deletePhoto(id) {
+        if (confirm('آیا عکس حذف شود')) {
+            window.location.href = '/Admin/DeletePhoto/' + id
+        }
+    }
+</script>

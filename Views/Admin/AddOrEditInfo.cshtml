@@ -1,0 +1,59 @@
+﻿@model hanmudo.Models.Info
+@{
+    ViewData["Title"] = "AddOrEditInfo";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-11">
+
+
+        <form class="me-5 form_Event" enctype="multipart/form-data" method="post" asp-action="AddOrEditInfo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+                 <div class="form-group">
+                <label asp-for="Title" class="control-label">عنوان </label>
+                <input asp-for="Title" class="form-control" required/>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label">متن </label>
+                <textarea asp-for="Text" class="form-control" cols="30" rows="4" required></textarea>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="img" class="control-label">عکس</label>
+                <input asp-for="img" type="file" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="alt" class="control-label">alt عکس</label>
+                <input asp-for="alt" class="form-control" required/>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="datetime" class="control-label">تاریخ(میلادی)</label>
+                <input asp-for="datetime" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label" required>ترتیب</label>
+                <input asp-for="Sequence" class="form-control" />
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="MainPage" />صفحه اصلی
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="m-4">
+    <a asp-action="Infos">بازگشت</a>
+</div>

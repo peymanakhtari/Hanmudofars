@@ -1,0 +1,36 @@
+﻿@model hanmudo.Models.Video
+@{
+    ViewData["Title"] = "AddOrEditVideo";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-11">
+        <form class="me-5 form_Event" enctype="multipart/form-data" method="post" asp-action="AddOrEditVideo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+        
+            <div class="form-group">
+                <label asp-for="Text" class="control-label">کد امبدآپارت</label>
+                <textarea asp-for="Text" class="form-control" cols="30" rows="10"></textarea>
+            </div>
+            <br>
+           
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label">ترتیب</label>
+                <input asp-for="Sequence" class="form-control" required />
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="m-4">
+    <a href="javascript:history.back()">بازگشت</a><br><br>
+</div>

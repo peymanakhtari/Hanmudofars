@@ -1,0 +1,162 @@
+﻿@using hanmudo.Models
+
+@{
+    ViewData["description"] = "آموزش پیشرفته ترین فنون دفاع شخصی وقفل مفصل در شیراز";
+    ViewData["Title"] = " وبسایت رسمی مو دو فارس";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a href="/User/Index" id=""
+            class="user_login_link btn  btn-outline-primary  mt-2 ms-2 shadow d-none d-md-block">پنل کاربری</a>
+        }
+        else
+        {
+            <a href="/User/Index" id=""
+            class="user_login_link btn  btn-outline-primary  mt-2 ms-2 shadow d-none d-md-block">ورود هنرجویان</a>
+        }
+        <h1 style="display:inline-block;float:left">
+            <a href="/DefaShakhsi/Amoozesh_Defashakhsi_Ghoflemafsal" style="width: 12rem;height: 2.5rem;" id=""
+                class="user_login_link btn  btn-outline-danger  mt-2 ms-2 shadow d-md-none"> آموزش دفاع شخصی </a>
+        </h1>
+
+
+        <br>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            <a style="margin-left: 3.5rem" id="self_defence" class="text-primary " href="/User/Index">پنل کاربری </a>
+        }
+        else
+        {
+            <a style="margin-left: 3.5rem" id="self_defence" class="text-primary " href="/User/Index">ورود هنرجویان</a>
+
+        }
+        <a id="self_defence_animation" href="/DefaShakhsi/Amoozesh_Defashakhsi_Ghoflemafsal" class="texteffect ">
+            <marquee behavior="scroll" direction="right" id="texteffect_span">
+                آموزش دفاع شخصی ، قفل مفصل و مبارزات
+            </marquee>
+        </a>
+    </div>
+
+    <br><br><br><br>
+    <p id="main_paragragh">
+        هان مو دو اصولی از هنرهای رزمی فراگیر است که شامل تکنیک‌های مبارزه با دست خالی، تکنیک‌های
+        مبارزه با سلاح، نیروی کی و مطالعه فلسفه هنرهای رزمی می باشد. دکتر هی یانگ کیم در سال 1989 پس از چهل سال تحصیل و
+        تحقیق دراصول هنرهای رزمی کره‌ای، هان مو دو را بنیان نهاد. وی طی یک سلسله تحقیق و تمرین درهنرهای رزمی، تکنیک و
+        فلسفه
+        های تمامی سبک ها را که اغلب مربوط به سال 1950 میلادی بودند را جمع آوری نمود و همواره با تکنیک‌های نوین و بدیع به
+        صورت یک اصول متعادل و جامع درآورد.
+        <br>هان مو دو از سال 1390 توسط جناب آقای امین علوی تبار وارد استان فارس شد و به صورت رسمی شروع به فعالیت
+        نمود.
+
+        <br>
+
+        حال این رشته کم نظیردردو بخش آقایان و بانوان دراستان پهن آور فارس فعال می باشد.
+        <br><br>
+        <span style="font-family: shabnam;font-size: 15.5px;font-weight: bold ;">
+            برای مطالعه مطالب بیشتر لینک ذیل را
+            کلیک‌ نمایید.
+        </span> <br>
+        <a href="/Hanmudo" style="font-family: iraniansans" class="btn btn-primary mt-2">هان مو دو چیست ؟</a>
+    </p>
+    <br><br>
+    <div id="main_video">
+        <div id="13244091896">
+            <script type="text/JavaScript"
+                src="https://www.aparat.com/embed/8aVUF?data[rnddiv]=13244091896&data[responsive]=yes"></script>
+        </div>
+    </div>
+    <br>
+    <div onclick="location.href='/home/PhotoGalery'" dir="ltr" class="splide" role="group" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+            <ul class="splide__list">
+                @foreach (var item in (List<Photo>)ViewBag.photos)
+                {
+                    <li class="splide__slide"><img src="/galery/photo/@item.text" alt="@item.alt"></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: right" class="w-100 ">
+
+        <a href="/Events" class="title_event shadow">
+            رویداد های اخیر
+        </a>
+    </div>
+    <div class="event_container">
+        @foreach (var item in (List<Event>)ViewBag.events)
+        {
+            <div class="event_card">
+                <div class="card w-100" style="width: 18rem;">
+                    <h5 class="card-title">@item.Title</h5>
+                    <a href="/galery/event/@item.img1">
+                        <img src="/galery/event/@item.img1" class="card-img-top" alt="@item.alt1">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-text">
+                            @item.ShortText
+                        </p>
+                        <a href="/Events/Detail/@item.Id" class="card-link btn btn-warning">ادامه مطلب</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+    <br>
+    @foreach (var item in (List<Info>)ViewBag.info)
+    {
+        <div class="inform_div">
+            <h3>
+                <div class="blink_me"> اطلاعیه</div>
+                <img src="/img/adamak.png" alt="">
+            </h3>
+            <h4>@item.Title</h4>
+            <a href="/galery/info/@item.img">
+                <img src="/galery/info/@item.img" alt="@item.alt">
+            </a>
+            <p>
+                @item.Text
+            </p>
+        </div>
+    }
+</div>
+ 
+@* <link rel="stylesheet" href="~/css/splide.css">
+ <script src="~/js/splide.js"></script>*@
+
+ <script>
+ var splide = new Splide('.splide', {
+    type: 'loop',
+    drag: 'free',
+    focus: 'center',
+    height: '10.7rem',
+    autoWidth: true,
+    autoStart: true,
+    perPage: 3,
+    autoScroll: {
+        speed: 1.5,
+    },
+}).mount(window.splide.Extensions);;
+ </script>
+
+ <style>
+ .splide__slide {
+    margin: 8px;
+}
+
+    .splide__slide img {
+        max-height: 12rem !important;
+    }
+
+ </style>

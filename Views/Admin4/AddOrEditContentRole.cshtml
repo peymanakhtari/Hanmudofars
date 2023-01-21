@@ -1,0 +1,104 @@
+﻿@model hanmudo.Models.RoleContent
+@{
+    ViewData["Title"] = "AddOrEditContentRole";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+    var count = ((List<KeyValue>)ViewBag._types).Count;
+
+}
+
+<div class="row">
+    <div class="col-11">
+        <form id="formvideo" class="me-5 form_Event" enctype="multipart/form-data" method="post"
+            asp-action="AddOrEditContentRole">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+            <div class="form-group">
+                <input name="CategoryTeknikId" value="@ViewBag.CategoryId" class="form-control" hidden />
+            </div>
+            <select class="form-select" name="Category" required>
+                <option value="0">انتخاب کنید</option>
+                @foreach (var item in (List<KeyValue>)ViewBag._categories)
+                {
+                    if (Model != null)
+                    {
+                        if (Model.Category == Convert.ToInt32(item.Value))
+                        {
+                            <option selected="selected" value="@item.Value">@item.key</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Value">@item.key</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="@item.Value">@item.key</option>
+                    }
+                }
+
+            </select><br>
+            <select class="form-select" name="Type" required>
+                <option value="0">انتخاب کنید</option>
+                @foreach (var item in (List<KeyValue>)ViewBag._types)
+                {
+                    @if (Model != null)
+                    {
+                        if (Model.Type == Convert.ToInt32(item.Value))
+                        {
+                            <option selected="selected" value="@item.Value">@item.key</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Value">@item.key</option>
+                        }
+                    }
+                    else
+                    {
+                        <option value="@item.Value">@item.key</option>
+                    }
+                }
+
+            </select>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label">متن</label>
+                <textarea asp-for="Text" class="form-control" cols="30" rows="10"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="control-label">عکس</label>
+                <input name="img" type="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">ویدیو</label>
+                <input name="vid" type="file" class="form-control" />
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label">ترتیب</label>
+                <input asp-for="Sequence" class="form-control" required />
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <input id="btnsubmit" onclick="upload(this)" type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="m-4">
+    <a href="javascript:history.back()">بازگشت</a><br><br>
+</div>
+<script>
+    function upload(elm) {
+
+
+        document.getElementById('btnsubmit').disabled = true;
+        document.getElementById('btnsubmit').value = 'در حال آپلود...'
+        document.getElementById('formvideo').submit();
+    }
+
+    console.log('@count')
+</script>

@@ -1,0 +1,43 @@
+﻿@model hanmudo.Models.SelfDefence
+@{
+    ViewData["Title"] = "AddOrEditSelfDefence";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-11">
+        <form class="me-5 form_Event" method="post" asp-action="AddOrEditSelfDefence">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">عنوان</label>
+                <input asp-for="Title" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">توضیحات</label>
+                <textarea asp-for="Description" class="form-control" cols="30" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Video" class="control-label">کد امبدآپارت</label>
+                <textarea asp-for="Video" class="form-control" cols="30" rows="5" required></textarea>
+            </div>
+            <br>
+
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label">ترتیب</label>
+                <input asp-for="Sequence" class="form-control" required />
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="m-4">
+    <a href="javascript:history.back()">بازگشت</a><br><br>
+</div>

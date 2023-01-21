@@ -1,0 +1,61 @@
+﻿@model IEnumerable<hanmudo.Models.Info>
+@{
+    ViewData["Title"] = "Infos";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div style="width: 90%;margin: auto;">
+
+    <p>
+        <a asp-action="AddOrEditInfo">افزودن اطلاعیه جدید</a>
+    </p><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                  <th>
+                   عنوان
+                </th>
+                <th>
+                    تاریخ
+                </th>
+                <th>
+                    ترتیب
+                </th>
+                <th>
+                    صفحه اصلی
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.datetime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sequence)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MainPage)
+                    </td>
+                    <td>
+                        <a class="m-2 btn btn-secondary" href="/Admin/AddOrEditInfo/@item.Id">ویرایش</a>
+                        <button class="btn btn-warning" onclick="deleteInfo(@item.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function deleteInfo(id) {
+        if (confirm('آیا اطلاعیه حذف شود')) {
+            window.location.href = '/Admin/deleteInfo/' + id
+        }
+    }
+</script>

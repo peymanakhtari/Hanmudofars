@@ -1,0 +1,66 @@
+﻿@model IEnumerable<hanmudo.Models.SelfDefence>
+@{
+    ViewData["Title"] = "selfDefence";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div style="width: 90%;margin: auto;">
+    <p>
+        <div style="text-align: center;font-size: 1.3rem;">@ViewBag.name</div> <br><br>
+        <a href="javascript:history.back()">بازگشت</a><br><br>
+
+        @Html.ActionLink("افزودن ویدیو جدید","AddOrEditSelfDefence","Admin3",new {Id=0})
+    </p><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                    اسم
+                </th>
+                <th>
+                    ترتیب
+                </th>
+
+                 <th>
+                    توضیحات
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sequence)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("ویرایش","AddOrEditSelfDefence","Admin3",new {Id=item.Id},new {@class="m-2 btn btn-secondary"})
+                        <button class="btn btn-warning" onclick="deleteVideo(@item.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function deleteVideo(id) {
+        if (confirm('آیا ویدیو حذف شود')) {
+           window.location.href='/Admin3/deleteSelfDefence/'+id
+        }
+    }
+</script>
+
+
+

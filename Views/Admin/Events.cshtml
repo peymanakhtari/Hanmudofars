@@ -1,0 +1,78 @@
+﻿@model IEnumerable<hanmudo.Models.Event>
+
+@{
+    ViewData["Title"] = "Events";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<div style="width: 90%;margin: auto;">
+
+    <p>
+        <a asp-action="AddOrEditEvent">افزودن رویداد جدید</a>
+    </p><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                   تیتر
+                </th>
+                <th>
+                   alt عکس1
+                </th>
+                <th>
+                      alt عکس2
+                </th>
+                <th>
+                تاریخ   
+                </th>
+                <th>
+                    ترتیب
+                </th>
+                <th>
+                    صفحه اصلی
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.alt1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.alt2)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sequence)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MainPage)
+                    </td>
+                    <td>
+                        <a  class="m-2 btn btn-secondary" href="/Admin/AddOrEditEvent/@item.Id">ویرایش</a>
+                        <button class="btn btn-warning" onclick="deleteEvent(@item.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function deleteEvent(id) {
+        if (confirm('آیا رویداد حذف شود')) {
+           window.location.href='/Admin/deleteEvent/'+id
+        } 
+    }
+</script>

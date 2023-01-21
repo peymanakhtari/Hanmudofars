@@ -1,0 +1,36 @@
+﻿@model List<hanmudo.Models.Event>
+@{
+    ViewData["description"] = "آموزش پیشرفته ترین فنون دفاع شخصی وقفل مفصل در شیراز";
+    ViewData["Title"] = "رویداد ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+
+
+<div class="event_container">
+    @foreach (var item in Model)
+    {
+        <div class="event_card">
+            <div class="card w-100" style="width: 18rem;">
+                <h5 class="card-title">@item.Title</h5>
+                <a target="_blank" href="/galery/event/@item.img1">
+                    <img src="/galery/event/@item.img1" class="card-img-top" alt="@item.alt1">
+                </a>
+                <div class="card-body">
+                    <p class="card-text">
+                        @item.ShortText
+                    </p>
+                    <a href="/Events/Detail/@item.Id" class="card-link btn btn-warning">ادامه مطلب</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

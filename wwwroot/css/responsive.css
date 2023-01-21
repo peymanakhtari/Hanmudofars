@@ -1,0 +1,86 @@
+
+@media screen and (max-width: 768px) {
+   
+    .photo_div img{
+        max-width:90% ;
+    }
+    .video_archive_item{
+        width: 90%;
+        margin: 5%;
+        }
+}
+@media screen and (max-width: 500px) {
+    #Logo_shafaf {
+        margin-right: 4rem ;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    #Logo_shafaf{
+        width: 40%;
+    }
+   
+}
+
+@media screen and (min-width: 768px) {
+    #fonix img {
+        width: 65%;
+    }
+
+    .user_login_link {
+        float: right;
+        margin-right: 2rem;
+        margin-top: 2rem !important;
+    }
+
+    #main_video {
+        margin-top: 3rem;
+    }
+
+    .offcanvas {
+        display: none !important;
+    }
+
+    #self_defence {
+       display: none;
+    }
+    #self_defence_animation{
+        width: 20rem;
+        display: block;
+    }
+    #self_defence_animation marquee{
+        width: 20rem;
+    }
+    #main_paragragh {
+        background-size: 55%;
+        background-position: center 1.5rem;
+        margin-top: 1rem;
+    }
+    .top_content{
+        height: 2rem;
+    }
+    .btn_english{
+        right: 2rem;
+        width: 10rem;
+    }
+    .photo_div img{
+         height: 14rem;
+
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #fonix img {
+        width: 50%;
+    }
+
+    #main_paragragh {
+        background-size: 40%;
+    }
+}
+@media screen and (min-width: 1199px) {
+    #main_paragragh {
+        background-size: 35%;
+        background-position: center .5rem;
+    }
+}

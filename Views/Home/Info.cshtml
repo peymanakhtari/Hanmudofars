@@ -1,0 +1,33 @@
+﻿@model List<hanmudo.Models.Info>
+@{
+    ViewData["description"] = "آموزش پیشرفته ترین فنون دفاع شخصی وقفل مفصل در شیراز";
+    ViewData["Title"] = "اطلاعیه ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+
+    </div>
+</div>
+
+<div class="event_container">
+    @foreach (var item in Model)
+    {
+        <div class="inform_flex_div">
+            <div class="inform_div">
+                <h4>@item.Title</h4>
+                <a target="_blank" href="/galery/info/@item.img">
+                    <img src="/galery/info/@item.img" alt="@item.alt">
+                </a>
+                <p>
+                    @item.Text
+                </p>
+            </div>
+        </div>
+
+    }
+</div>

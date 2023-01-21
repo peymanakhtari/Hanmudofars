@@ -1,0 +1,58 @@
+﻿@using hanmudo.Models
+@model hanmudo.Models.Teknik
+@{
+    ViewData["Title"] = "AddOrEditTeknik";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<div style="text-align: center;font-size: 1.3rem;">@ViewBag.name</div> <br><br>
+<div class="row">
+    <div class="col-11">
+
+
+        <form class="me-5 form_Event" enctype="multipart/form-data" method="post" asp-action="AddOrEditTeknik">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label">اسم تکنیک </label>
+                <input asp-for="Text" class="form-control" required />
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label">ترتیب</label>
+                <input asp-for="Sequence" class="form-control" required />
+            </div>
+            <br>
+            <select class="form-select" name="beltId" required>
+                @foreach (var item in (List<Belt>)ViewBag.belts)
+                {
+                    @if (Model == null)
+                    {
+                        <option value="@item.Id">@item.Text</option>
+                    }
+                    else
+                    {
+                        if (item.Id == Model.BeltId)
+                        {
+                            <option value="@item.Id" selected="selected">@item.Text</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Id">@item.Text</option>
+                        }
+                    }
+                }
+            </select>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="m-4">
+    <a href="javascript:history.back()">بازگشت</a><br><br>
+</div>

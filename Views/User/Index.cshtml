@@ -1,0 +1,185 @@
+﻿@using System.Text
+@using hanmudo.Utiliteis
+@model hanmudo.Models.User
+@{
+    ViewData["Title"] = "پنل کاربری";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+        <button onclick="Logout()" class="user_Logout_link btn  btn-outline-danger  mt-2 ms-2 shadow">خروج</button>
+    </div>
+</div>
+
+<div class="user_info">
+    <h3>@Model.Name</h3>
+    <p> به پنل کاربری خود خوش آمدید </p>
+    <p> تاریخ انقضا : <span>@Utility.DateBuilder(Model.Expire.ToShamsi())</span></p>
+</div>
+<br>
+<div class="row">
+    <div style="padding-top: 5px" class="col-6 col-md-4">
+        <br><br>
+        @foreach (var item in (List<hanmudo.Models.Belt>)ViewBag.belts)
+        {
+            if (item.Code != 10)
+            {
+                if (Model.ConfirmRules)
+                {
+
+                    if (item.Code < Model.belt)
+                    {
+                        <button onclick="location.href='/User/Teknik/@item.Id'" class=" btn_belt  ">
+                            <span>@item.Text</span> <img src="/img/@item.Img">
+                        </button>
+                        <br>
+                    }
+                    else
+                    {
+                        <button disabled="disabled" class=" btn_belt  disable">
+                            <span>@item.Text</span> <img src="/img/@item.Img">
+                        </button>
+                        <br>
+                    }
+
+                }
+                else
+                {
+                    if (item.Code < Model.belt)
+                    {
+                        <button onclick="firstLogin()" class=" btn_belt  ">
+                            <span>@item.Text</span> <img src="/img/@item.Img">
+                        </button>
+                        <br>
+                    }
+                    else
+                    {
+                        <button disabled="disabled" class=" btn_belt  disable">
+                            <span>@item.Text</span> <img src="/img/@item.Img">
+                        </button>
+                        <br>
+                    }
+                }
+            }
+        }
+
+
+
+    </div>
+    <div class="col-6 col-md-8 tutorials">
+        <br>
+        <h1>آموزش های لازم :</h1>
+        <br>
+        <a href="/User/Roles/1">قوانین کلاسی</a><br>
+        <a href="/User/Darian">تکنیک های مبارزات</a><br>
+        <a href="/User/AsamiEstelahat">اسامی واصطلاحات</a><br>
+        <a href="/User/Roles/2">قوانین مربی‌گری</a><br>
+        <a href="/User/Roles/3">قوانین داوری</a><br>
+        @if (@ViewBag.seenCount == 0)
+        {
+            <a href="/User/Info">اطلاعیه </a><br>
+        }
+        else
+        {
+            <a href="/User/Info">اطلاعیه <span class="user_info_count">@ViewBag.seenCount</span></a><br>
+        }
+    </div>
+</div>
+
+<script>
+    function firstLogin() {
+        const { value: accept } = Swal.fire({
+            title: 'قوانین ومقررات',
+            html: `<div class="roles">
+                   مقررات و محرمانگی استفاده از آموزش های هان مو دو استان فارس.
+
+<br><br>
+
+
+اینجانب به موجب این تعهد نامه متعهد میگردم  کلیه موارد ذیل در خصوص شرایط استفاده از بخش هنرجویان رعایت نمایم.
+
+<br><br>
+
+هنرجویان گرامی این وبسایت در راستای ارتقا سطح تکنیکی شما طراحی شده است.
+<br><br>
+استفاده از این بخش متعلق به هنرجویان رسمی هان مو دو فارس می باشد.
+<br><br>
+آموزش ها با تفکیک رده به هر شخص ارائه می شود.
+<br><br>
+هرگونه اشتراک گذاری (استاتوس/ استوری و ...) و کپی برداری از مطالب ، فایل ها ، عکس ها ، ویدئو ها به هر دلیل ممنوع است و درصورت مشاهده کلیه عواقب ناشی از آن بر عهده شخص خاطی خواهد بود.
+<br><br>
+مدت زمان بهره گیری از آموزش ها در این سایت از زمان ثبت نام به مدت یک سال می باشد.
+<br><br>
+در اختیار گذاشتن نام کاربری و رمزعبور به دیگران ممنوع است.
+<br><br>
+هزینه ثبت نام و عضویت در پنل کاربری بر اساس رده بندی به هنرجو اعلام می شود.
+<br><br>
+هنرجویان موظف اند در حفظ و نگهداری  موارد آموزشی و امنیتی پنل کاربری خود نهایت دقت را داشته باشند.
+
+
+
+           </div>   `,
+            input: 'checkbox',
+            inputValue: 0,
+            inputPlaceholder:
+                'قوانین و مقررات را مطالعه کردم',
+            confirmButtonText:
+                'ادامه <i class="fa fa-arrow-right"></i>',
+            inputValidator: (result) => {
+                return !result && 'لطفا تیک بالا را بزنید'
+            }
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: 'اکنون می توانید تکنیک های خود را مشاهده کنید',
+                    icon: 'success',
+                    confirmButtonText: 'متوجه شدم'
+                }).then(() => { location.href = "/User/ConfirmRules" })
+            } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+            }
+        });
+
+        if (accept) {
+            Swal.fire('You agreed with T&C :)')
+        }
+    }
+
+    function Logout() {
+        Swal.fire({
+            title: 'خروج از پنل کاربری',
+            text: "آیا میخواهید از پنل کاربری خود خارج شوید؟",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonText: 'خیر',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'بله'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                location.href = '/User/Logout';
+            }
+        })
+    }
+</script>
+
+<style>
+    .disable img {
+        opacity: .5;
+    }
+
+    .disable:hover {
+        background-color: rgb(247, 247, 247);
+    }
+
+    .roles {
+        text-align: justify;
+        line-height: 1.6rem;
+        font-family: bkoodak;
+    }
+</style>

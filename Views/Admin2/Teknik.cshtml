@@ -1,0 +1,58 @@
+﻿@model List<hanmudo.Models.Teknik>
+@{
+    ViewData["Title"] = "Teknik";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div style="width: 90%;margin: auto;">
+    <p>
+        <a asp-action="AddOrEditTeknik">افزودن تکنیک جدید</a>
+    </p><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                    اسم تکنیک
+                </th>
+                <th>
+                    کمربند
+                </th>
+                <th>
+                    زیرمجموعه ها
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Belt.Text)
+                    </td>
+                    <td>
+                        <a class="btn btn-info" href="/Admin2/CategoryTeknik/@item.Id">زیرمجموعه</a>
+                    </td>
+                    <td>
+                        <a class="m-2 btn btn-secondary" href="/Admin2/AddOrEditTeknik/@item.Id">ویرایش</a>
+                        <button class="btn btn-warning" onclick="deleteTeknik(@item.Id)">حذف</button>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function deleteTeknik(id) {
+        if (confirm('آیا تکنیک حذف شود')) {
+           window.location.href='/Admin2/deleteTeknik/'+id;
+        }
+    }
+</script>

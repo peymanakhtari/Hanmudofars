@@ -1,0 +1,81 @@
+﻿@model List<hanmudo.Models.InfoUserViewModel>
+@{
+    ViewData["Title"] = "InfoUser";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div style="width: 90%;margin: auto;">
+    <br><br>
+    <p>
+        @Html.ActionLink("افزودن اطلاعیه جدید","AddOrEditInfoUser","Admin4")
+    </p><br>
+    <table id="myTable" class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                    عنوان
+                </th>
+             
+                <th>
+                    رده
+                </th>
+                <th>
+                   نمایش
+                </th>
+                <th>
+                  ترتیب
+                </th>
+              
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.infoUser.Title)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.belt)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.infoUser.Show)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.infoUser.Sequence)
+                    </td>
+
+                    <td>
+                         <button class="btn btn-danger" onclick="resetInfo(@item.infoUser.Id)">reset info</button>
+                        
+                         @Html.ActionLink("User not seen","StudentSeenInfo","Admin4",new
+                    {Id=item.infoUser.Id},new {@class="m-2 btn btn-info"})
+                        @Html.ActionLink("ویرایش","AddOrEditInfoUser","Admin4",new
+                    {Id=item.infoUser.Id},new {@class="m-2 btn btn-secondary"})
+                        <button class="btn btn-warning" onclick="deleteInfo(@item.infoUser.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function deleteInfo(id) {
+        if (confirm('آیا اطلاعیه حذف شود')) {
+            window.location.href = '/Admin4/deleteInfoUser/' + id;
+        }
+    }
+    function resetInfo(id){
+         if (confirm('آیا اطلاعیه ریست شود')) {
+            window.location.href = '/Admin4/ResetInfo/' + id;
+        }
+    }
+   
+</script>

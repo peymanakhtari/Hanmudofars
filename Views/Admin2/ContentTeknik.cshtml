@@ -1,0 +1,66 @@
+﻿@model List<hanmudo.Models.ContentTeknik>
+@{
+    ViewData["Title"] = "ContentTeknik";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div style="width: 90%;margin: auto;">
+    <p>
+         <div style="text-align: center;font-size: 1.3rem;">@ViewBag.name</div> <br><br>
+                    <a href="/Admin2/CategoryTeknik/@ViewBag.TeknikId">بازگشت</a><br><br>
+
+          @Html.ActionLink("افزودن محتوا جدید","AddOrEditContent","Admin2",new {Id=0,CategoryId=ViewBag.categoryId})
+    </p><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                   محتوا
+                </th>
+                 <th>
+                   ترتیب
+                </th>
+               
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                       @if(item.Type==1){
+                        <span>متن</span>
+                       }
+                       else if(item.Type==2){
+                        <span>عکس</span>
+                       }
+                         else if(item.Type==3){
+                        <span>ویدیو</span>
+                       }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sequence)
+                    </td>
+                  
+                    <td>
+                        @Html.ActionLink("ویرایش","AddOrEditContent","Admin2",new {Id=item.Id,CategoryId=item.CategoryTeknikId},new {@class="m-2 btn btn-secondary"})
+                         <button class="btn btn-warning" onclick="deleteContent(@item.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function deleteContent(id) {
+        if (confirm('آیا محتوا حذف شود')) {
+           window.location.href='/Admin2/deleteContent/'+id+'?CategoryId='+@ViewBag.categoryId
+        } 
+    }
+</script>
+</div>

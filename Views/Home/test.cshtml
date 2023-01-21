@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @* Layout = null; *@
+}
+
+@* <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> *@
+<link rel="stylesheet" href="~/lib/splidejs/css/splide.min.css">
+<script src="~/lib/splidejs/js/splide.min.js"></script>
+<script src="~/lib/splidejs/js/splide-extension-auto-scroll.min.js"></script>
+
+<div dir="ltr" style="height: 20rem" class="splide" role="group" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+        <ul class="splide__list">
+
+            <li class="splide__slide"><img src="/galery/photo/31_img.jpg" alt=""></li>
+            <li class="splide__slide"><img src="/galery/photo/31_img.jpg" alt=""></li>
+            <li class="splide__slide"><img src="/galery/photo/31_img.jpg" alt=""></li>
+            <li class="splide__slide"><img src="/galery/photo/31_img.jpg" alt=""></li>
+            <li class="splide__slide"><img src="/galery/photo/31_img.jpg" alt=""></li>
+            <li class="splide__slide"><img src="/galery/photo/31_img.jpg" alt=""></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+
+@* var splide = new Splide( '.splide', {
+  type     : 'loop',
+  height   : '10rem',
+  focus    : 'center',
+  autoWidth: true,
+} );
+
+splide.mount(); *@
+
+    var splide = new Splide('.splide', {
+        type: 'loop',
+        drag: 'free',
+        focus: 'center',
+        height: '19rem',
+        autoWidth: true,
+        autoStart: true,
+        perPage: 3,
+        autoScroll: {
+            speed: 1.5,
+        },
+    })
+    .mount(window.splide.Extensions);;
+
+</script>
+<style>
+
+</style>

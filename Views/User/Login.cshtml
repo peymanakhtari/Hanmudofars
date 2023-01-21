@@ -1,0 +1,92 @@
+﻿@model List<hanmudo.Models.Belt>
+@{
+    ViewData["Title"] = "ورود هنرجویان";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/persian.js/0.4.0/persian.min.js"></script>
+</head>
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+
+    </div>
+</div>
+<h1 class="user_login_title">
+    ورود هنرجویان
+</h1>
+
+<form class="row g-3 needs-validation" action="/User/Login" method="post"
+    style="width: 18rem;margin-right: 2rem;font-family: shabnam;" novalidate>
+    @Html.AntiForgeryToken()
+    <div class="col-12">
+        <div class="form-outline">
+            <input type="text" class=" input_login" name="user" placeholder="نام کاربری" id="validationCustom01"
+                required />
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-outline">
+            <input type="password" placeholder="کلمه عبور" name="pass" class=" input_login" id="password" required />
+        </div>
+    </div>
+
+    <div style="color: red;line-height: 1.4rem;">@ViewBag.message</div>
+    <div class="col-12">
+        <input onclick="convertDigit()" class="btn btn-success px-4 me-2" value="ورود" type="submit">
+    </div>
+</form>
+@foreach (var item in Model)
+{
+    if (item.Code != 10)
+    {
+
+        <br>
+        <button onclick="firstLogin()" class=" btn_belt "> <span>@item.Text</span> <img src="/img/@item.Img" alt=""></button>
+    }
+}
+ <div id="footer" class="footer">
+                    <div>
+                        <span style="position: relative;bottom: .5rem;">
+                            <a href="/Home/ContactUs">ارتباط با ما</a>
+                        </span>
+
+                        <span>
+                            <a href=""> <img src="/img/blog_ICO.png" alt=""></a>
+                            <a href=""><img src="/img/aparat_ICO.png" alt=""></a>
+                            <a href=""><img src="/img/telegram_ICO.png" alt=""></a>
+                            <a href=""><img src="/img/youtube_ICO.png" alt=""></a>
+                            <a href=""><img src="/img/instagram_ICO.png" alt=""></a>
+                        </span>
+                    </div>
+                    <p dir="rtl">کلیه حقوق مادی و معنوی این وبسایت متعلق به هان مو دو استان فارس (علوی تبار) می باشد.</p>
+                </div>
+<script>
+    function fire(val) {
+        Swal.fire({
+            text: val,
+            confirmButtonColor: '#363636',
+            confirmButtonText: 'متوجه شدم',
+            icon: "warning",
+        })
+    }
+    function firstLogin() {
+        fire('برای مشاهده تکنیک های  خود ابتدا باید وارد شوید')
+    }
+    function convertDigit(){
+        var user=$('#validationCustom01').val()
+        var pass=$('#password').val()
+        $('#validationCustom01').val(persianJs(user).toEnglishNumber())
+        $('#password').val(persianJs(pass).toEnglishNumber())
+
+    }
+</script>
+<style>
+    .footer_user{
+        display: none;
+    }
+</style>

@@ -1,0 +1,41 @@
+﻿@model hanmudo.Models.Event
+@{
+    ViewData["description"] = "آموزش پیشرفته ترین فنون دفاع شخصی وقفل مفصل در شیراز";
+    ViewData["Title"] = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+
+    </div>
+</div>
+<div class="event_detail">
+    <h1>@Model.Title</h1>
+    <img src="/galery/event/@Model.img1" alt="@Model.alt1">
+    <p>@Model.ShortText</p>
+    <div class="event_video">
+        @Html.Raw(Model.Video)
+    </div>
+
+    @if (Model.img2 != null)
+    {
+        <img  src="/galery/event/@Model.img2" alt="@Model.alt2">
+    }
+
+    <p>@Html.Raw(Model.LongText)</p>
+
+    @if (Model.Link1 != null)
+    {
+        <a class="btn btn-primary me-4" href="@Model.Link1">@Model.NameLink1</a>
+    }
+
+    @if (Model.Link2 != null)
+    {
+        <a class="btn btn-primary" href="@Model.Link2">@Model.NameLink2</a>
+    }
+
+</div>
+<br><br><br><br>

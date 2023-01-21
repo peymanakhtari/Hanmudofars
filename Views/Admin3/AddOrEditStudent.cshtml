@@ -1,0 +1,74 @@
+﻿@using hanmudo.Models
+@model hanmudo.Models.UserViewModel
+@{
+    ViewData["Title"] = "AddOrEditStudent";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+ <div style="text-align: center;font-size: 1.3rem;">@ViewBag.name</div> <br><br>
+<div class="row">
+    <div class="col-11">
+
+
+        <form class="me-5 form_Event" enctype="multipart/form-data" method="post" asp-action="AddOrEditStudent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="User.Id" class="form-control" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Name" class="control-label">نام </label>
+                <input asp-for="User.Name" class="form-control" required />
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="User.UserName" class="control-label">  نام کاربری</label>
+                <input asp-for="User.UserName" class="form-control" required/>
+            </div>
+             <div class="form-group">
+                <label asp-for="User.Password" class="control-label">کلمه عبور </label>
+                <input asp-for="User.Password" class="form-control" required/>
+            </div>
+               <div class="form-group">
+                <label asp-for="User.Expire" class="control-label">تاریخ انقضا </label>
+                <input type="date" asp-for="User.Expire" class="form-control" required/>
+                <input type="date" asp-for="User.CreationDate"  hidden/>
+            </div>
+             <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="User.ConfirmRules" /> مقررات
+                </label>
+            </div>
+            <br>
+            <select class="form-select" name="belt">
+                @foreach (var item in (List<Belt>)ViewBag.belts)
+                {
+                    @if (Model==null)
+                    {
+                        <option value="@item.Code">@item.Text</option>
+                    }
+                    else
+                    {
+                        if (item.Code == Model.User.belt)
+                        {
+                            <option value="@item.Code" selected="selected">@item.Text</option>
+                        }
+                        else
+                        {
+                            <option value="@item.Code" >@item.Text</option>
+                        }
+                    }
+                }
+            </select>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="m-4">
+   <a href="javascript:history.back()">بازگشت</a><br><br>
+</div>

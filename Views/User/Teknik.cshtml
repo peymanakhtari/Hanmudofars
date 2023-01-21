@@ -1,0 +1,23 @@
+﻿@model List<hanmudo.Models.Teknik>
+@{
+    ViewData["Title"] = "    تکنیک  های  کمربند   " + ViewBag.beltName ;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<partial name="~/Views/Shared/UserPanelTopBar.cshtml" />
+
+<div class="teknik">
+     <h3 style="font-family: shabnam;text-align: center;font-weight: bold;font-size: 1.2rem;"> تکنیک های کمربند @ViewBag.beltName</h3>
+     <br><br>
+    @if (Model.Count==0)
+    {
+       
+        <p>تکنیک های این بخش به زودی تکمیل میگردد</p>
+    }
+    <button style="font-family: iraniansans;margin-right:2.2rem ;" class="btn btn-dark " onclick="history.back()">بازگشت</button>
+    @foreach (var item in Model)
+    {
+        <a href="/User/Category/@item.Id">@item.Text</a>
+
+    }
+</div>

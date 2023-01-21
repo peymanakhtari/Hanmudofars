@@ -1,0 +1,60 @@
+﻿@model List<hanmudo.Models.CategoryTeknik>
+@{
+    ViewData["Title"] = "CategoryTeknik";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<div style="width: 90%;margin: auto;">
+    <p>
+           <div style="text-align: center;font-size: 1.3rem;">@ViewBag.name</div> <br><br>
+           <a href="javascript:history.back()">بازگشت</a><br><br>
+          @Html.ActionLink("افزودن مورد جدید","AddOrEditCategory","Admin2",new {Id=0,TeknikId=ViewBag.TeknikId})
+    </p><br>
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                    اسم تکنیک
+                </th>
+                 <th>
+                   ترتیب
+                </th>
+                 <th>
+                   
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sequence)
+                    </td>
+                      <td>
+                       <a class="m-2 btn btn-info" href="/Admin2/ContentTeknik/@item.Id">محتوا</a>
+                    </td>
+                    <td>
+                        @Html.ActionLink("ویرایش","AddOrEditCategory","Admin2",new {Id=item.Id,TeknikId=item.TeknikId},new {@class="m-2 btn btn-secondary"})
+                         <button class="btn btn-warning" onclick="deleteCategory(@item.Id)">حذف</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<script>
+    function deleteCategory(id) {
+        if (confirm('آیا تکنیک حذف شود')) {
+           window.location.href='/Admin2/deleteCategory/'+id+'?teknikId='+@ViewBag.TeknikId
+        } 
+    }
+</script>

@@ -1,0 +1,86 @@
+﻿@model hanmudo.Models.ContentTeknik
+@{
+    ViewData["Title"] = "AddOrEditContent";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-11">
+        <form id="formvideo" class="me-5 form_Event" enctype="multipart/form-data" method="post" asp-action="AddOrEditContent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" hidden />
+            </div>
+            <div class="form-group">
+                <input name="CategoryTeknikId" value="@ViewBag.CategoryId" class="form-control" hidden />
+            </div>
+            <select class="form-select" name="Type" required>
+                <option value="0">انتخاب کنید</option>
+                @if (Model != null)
+                {
+                    if (Model.Type == 1)
+                    {
+                        <option selected="selected" value="1">متن</option>
+                        <option value="2">عکس</option>
+                        <option value="3">ویدیو</option>
+                    }
+                    else if (Model.Type == 2)
+                    {
+                        <option value="1">متن</option>
+                        <option selected="selected" value="2">عکس</option>
+                        <option value="3">ویدیو</option>
+                    }
+                    else
+                    {
+                        <option value="1">متن</option>
+                        <option  value="2">عکس</option>
+                        <option selected="selected" value="3">ویدیو</option>
+                    }
+                }
+                else
+                {
+                    <option value="1">متن</option>
+                    <option value="2">عکس</option>
+                    <option value="3">ویدیو</option>
+                }
+
+            </select>
+
+            <div class="form-group">
+                <label asp-for="Text" class="control-label">متن</label>
+                <textarea asp-for="Text" class="form-control" cols="30" rows="10"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="control-label">عکس</label>
+                <input name="pic" type="file" class="form-control" />
+            </div>
+                  <div class="form-group">
+                <label class="control-label">ویدیو</label>
+                <input name="vid" type="file" class="form-control" />
+            </div>
+            <br>
+            <div class="form-group">
+                <label asp-for="Sequence" class="control-label">ترتیب</label>
+                <input asp-for="Sequence" class="form-control" required />
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <input id="btnsubmit" onclick="upload(this)" type="submit" value="ثبت" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="m-4">
+    <a href="javascript:history.back()">بازگشت</a><br><br>
+</div>
+<script>
+     function upload(elm) {
+
+
+            document.getElementById('btnsubmit').disabled = true;
+             document.getElementById('btnsubmit').value='در حال آپلود...'
+            document.getElementById('formvideo').submit();
+    }
+</script>

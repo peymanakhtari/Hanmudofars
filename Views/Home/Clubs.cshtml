@@ -1,0 +1,164 @@
+﻿@{
+    ViewData["description"] = "آموزش پیشرفته ترین فنون دفاع شخصی وقفل مفصل در شیراز";
+    ViewData["Title"] = "باشگاه ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+
+    </div>
+</div>
+<div style="text-align:center;width: 100%;">
+    <a href="/DefaShakhsi/Amoozesh_Defashakhsi_Ghoflemafsal" class="texteffect">
+        <marquee behavior="scroll" direction="right" id="texteffect_span">
+            آموزش دفاع شخصی ، قفل مفصل و مبارزات
+        </marquee>
+    </a>
+</div>
+
+
+<div style="text-align: center;font-family: iraniansans;" id="cubs_btn" class="w-100">
+    <br> <br> <br> <br>
+    <button class="btn_club " id="men_club_btn" onclick="men_club()">باشگاه های فعال آقایان</button>
+    <br><br>
+    <button class="btn_club " id="wemon_club_btn" onclick="wemon_club()">باشگاه های فعال بانوان</button>
+</div>
+
+<div style="display: none" id="men_club" class="club_div">
+
+    <div style="width: 100%;">
+        <span style="width: 20rem;display: block;margin:auto;">
+            <button class="btn btn-dark " onclick="returnto()">بازگشت</button>
+        </span>
+    </div>
+
+    <div class="club">
+        <div class="club_title">1- مجموعه ورزشی دلاوران (مرکزیت استان)</div>
+        <div class="club_content">
+            <div class="club_text_div">
+                <span class="club_text">آدرس : حدفاصل میدان اطلسی و چهاراه باغ تخت</span>
+                <span class="club_text">روز ها: زوج</span>
+                <span class="club_text">ساعت : 21 الی 22:15</span>
+                <span class="club_text">مربی : جناب آقای امین علوی تبار</span>
+                <span class="club_text">شماره تماس : 09354428881</span>
+            </div>
+            <img src="/img/aminAlavitabar.jpg" alt="امین علوی تبار ">
+        </div>
+    </div>
+    <div class="club">
+        <div class="club_title">2- مجموعه ورزشی دلاوران</div>
+        <div class="club_content">
+            <div class="club_text_div">
+                <span class="club_text">آدرس: حدفاصل میدان اطلسی و چهاراه باغ تخت</span>
+                <span class="club_text">روز ها: فرد</span>
+                <span class="club_text">ساعت: 20:15 الی 21:30</span>
+                <span class="club_text">مربی: جناب آقای رضا علوی تبار</span>
+                <span class="club_text">شماره تماس: 09393385671</span>
+            </div>
+            <img src="/img/RezaAlavitabar1.jpg" alt="رضا علوی تبار ">
+        </div>
+    </div>
+
+    <div class="club">
+        <div class="club_title">3- فرهنگسرای سلامت</div>
+        <div class="club_content">
+            <div class="club_text_div">
+                <span class="club_text">آدرس: بلوار معالی آباد روبه روی خیابان پزشکان ، بوستان ملت</span>
+                <span class="club_text">روز ها: فرد</span>
+                <span class="club_text">ساعت: 18 الی 19</span>
+                <span class="club_text">مربی: جناب آقای رضا علوی تبار</span>
+                <span class="club_text">شماره تماس: 09393385671</span>
+            </div>
+            <img src="/img/RezaAlavitabar1.jpg" alt="Reza Alavitabar">
+        </div>
+    </div>
+
+    <div class="club">
+        <div class="club_title">4- کانون شهید کامفیروزی</div>
+        <div class="club_content">
+            <div class="club_text_div">
+                <span class="club_text">آدرس: میدان خاتون ، ابتدای بلوار دلاوران بسیج ، جنب پل روگذر</span>
+                <span class="club_text">روز ها: فرد</span>
+                <span class="club_text">ساعت: 21 الی 22:30</span>
+                <span class="club_text">مربی: جناب آقای امیر مهر</span>
+                <span class="club_text">شماره تماس: 09175680165</span>
+            </div>
+            <img src="/img/amirMehr.jpg" alt="امیر مهر ">
+        </div>
+    </div>
+</div>
+
+
+<div style="display: none" id="wemon_club" class="club_div">
+    <div style="width: 100%;">
+        <span style="width: 20rem;display: block;margin:auto;">
+            <button class="btn btn-dark " onclick="returnto()">بازگشت</button>
+        </span>
+    </div>
+
+    <div class="club">
+        <div class="club_title">1- مجموعه ورزشی پهلوانان نصیری</div>
+        <div class="club_content">
+            <div class="club_text_div">
+                <span class="club_text">آدرس: بلوار رحمت ابتدای خیابان شهید سپاسی</span>
+                <span class="club_text">روز ها: زوج</span>
+                <span class="club_text">ساعت: 15 الی 16:30</span>
+                <span class="club_text">مربی: سرکار خانم دلاوران</span>
+                <span class="club_text"> شماره تماس: 09033202907 </span>
+            </div>
+            <img src="/img/Delavaran.jpeg" alt=" حمیده دلاوران">
+        </div>
+    </div>
+    <div class="club">
+        <div class="club_title">2- مجموعه ورزشی حمزه</div>
+        <div class="club_content">
+            <div class="club_text_div">
+                <span class="club_text">آدرس : بولوار سیبیویه خیابان حسینی</span>
+                <span class="club_text">روز ها: فرد </span>
+                <span class="club_text">ساعت: ۱۵:۴۵ الی ۱۷:۰۰</span>
+                <span class="club_text">مربی: سرکار خانم دلاوران</span>
+                <span class="club_text"> شماره تماس: 09033202907 </span>
+            </div>
+            <img src="/img/Delavaran.jpeg" alt=" حمیده دلاوران">
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<script>
+
+    function men_club() {
+        $('#cubs_btn').css('display', 'none');
+        $('#wemon_club').css('display', 'none');
+        $('#men_club').css('display', 'block')
+    }
+
+    function wemon_club() {
+        $('#cubs_btn').css('display', 'none');
+        $('#men_club').css('display', 'none')
+        $('#wemon_club').css('display', 'block');
+    }
+    function returnto() {
+        $('#cubs_btn').css('display', 'block');
+        $('#men_club').css('display', 'none')
+        $('#wemon_club').css('display', 'none');
+    }
+
+</script>
+<style>
+    .btn-dark {
+        font-family: iraniansans;
+    }
+</style>

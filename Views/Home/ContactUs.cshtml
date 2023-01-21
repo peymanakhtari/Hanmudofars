@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["description"] = "آموزش پیشرفته ترین فنون دفاع شخصی وقفل مفصل در شیراز";
+    ViewData["Title"] = "ارتباط با ما";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main_container">
+    <div class="top_content">
+        <span class="d-md-none menu_icon mt-2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </span>
+
+    </div>
+</div>
+<h1 style="text-align: center; font-family: shabnam;font-size: 2rem;">ارتباط با ما</h1>
+@if (ViewBag.MessageSent != null)
+{
+    <div class="alert alert-success w-75 alert-dismissible m-5 fade show" role="alert">
+        <strong>پیام شما با موفقیت ارسال گردید</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="contant_info">
+    <a href="tel://09354428881"><i class="phone_icon fa fa-phone ms-2 mb-2"></i>09354428881</a><br>
+
+    <a href="https://wa.me/+989173385671?text="><i class="phone_icon fa fa-whatsapp ms-2 mb-2"
+            style="color: green;font-size: 1.6rem;"></i>09173385671</a><br>
+
+    <a href="mailto:hanmudofars@yahoo.com"><i style="color: red"
+            class=" fa fa-envelope ms-2"></i>hanmudofars@yahoo.com</a>
+
+    </p> <a href="https://goo.gl/maps/xi3EUvUbB61ZEpgu9"><i style="color: rgb(150, 150, 0)"
+            class=" fa fa-map-marker ms-2" aria-hidden="true"></i>شیراز بلوار امام خامنه
+        ای مجموعه ورزشی دلاوران</a>
+    <p>
+
+
+    <p><i style="color: red" class="fa fa-star ms-2"></i>پر کردن موارد ذیل اجباری می باشد</p>
+</div>
+
+
+<form action="/home/contactUs" method="post" class="row g-3 needs-validation"
+    style="width: 18rem;margin-right: 2rem;font-family: shabnam;" novalidate>
+    <div class="col-12">
+        <div class="form-outline">
+            <input name="firstLastName" type="text" placeholder="نام و نام خانوادگی" class="form-control"
+                id="validationCustom01" required />
+            <div class="invalid-feedback"> نام و نام خانوادگی خود را وارد کنید</div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-outline">
+            <input name="mobile" placeholder="شماره تماس" type="text" class="form-control" id="validationCustom02"
+                minlength="11" maxlength="11" required />
+            <div class="invalid-feedback">شماره همراه خود را وارد کنید</div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="form-outline">
+            <textarea name="message" placeholder="متن پیام" type="text" class="form-control" id="validationCustom03"
+                rows="5" required></textarea>
+            <div class="invalid-feedback">متن پیام را وارد کنید</div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit"> ارسال</button>
+    </div>
+</form>
+<br>
+<br>
+<div id="peyman"
+    style="width:300px;height:100px;box-shadow:0 0 0 8px #171717;border:4px solid #fafafa;background-color:#171717;border-radius:20px;margin: 20px auto 0 auto;font-size:16px; ">
+    <p style="color:white;text-align:center;margin-top:20px">Web developer : Peyman Akhtari</p>
+    <br>
+    <p style="color:white;text-align:center">peyman.firelance@gmail.com</p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+        'use strict';
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach((form) => {
+            form.addEventListener('submit', (event) => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+
+    $(document).ready(function () {
+        // Handler for .ready() called.
+        var elem = getParameterByName('elem');
+        $('html, body').animate({
+            scrollTop: $('#' + elem).offset().top
+        }, 'fast');
+    });
+
+</script>

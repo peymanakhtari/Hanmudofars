@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+    <span onclick="history.back()">
+     &#x2715
+    </span>
+     <img src="/galery/photo/@ViewBag.img" />
+        
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+             var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+             let height = screen.height;
+             var img= document.querySelector('img')
+             imgW=img.width 
+             imgH=img.height
+             if(height>width){
+                 $('img').css('width',width )
+             }
+
+             else{
+             console.log(height -100)
+             img.style.height =height -200;
+          
+
+             }
+            
+    })
+</script>
+<link href="~/css/expandimg.css" rel="stylesheet" />

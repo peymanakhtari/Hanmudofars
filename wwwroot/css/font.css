@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "vazir";
+    src: url("../font/Vazir.ttf") format("ttf"),
+    url("../font/vazir.woff") format("woff"),
+    url("../font/vazir.woff2") format("woff2");
+}
+@font-face {
+    font-family: "bkoodak";
+    src: url("../font/BKoodakBold.ttf") format("ttf"),
+    url("../font/BKoodakBold.woff") format("woff"),
+    url("../font/BKoodakBold.woff2") format("woff2");
+}
+@font-face {
+    font-family: "IranianSans";
+    src: url("../font/Iranian Sans.ttf") format("ttf"),
+    url("../font/Iranian Sans.woff") format("woff"),
+    url("../font/Iranian Sans.woff2") format("woff2");
+}
+@font-face {
+    font-family: "kamranoutline";
+    src: url("../font/BKAMRANOUTLINE.ttf") format("ttf"),
+    url("../font/BKAMRANOUTLINE.woff") format("woff"),
+    url("../font/BKAMRANOUTLINE.woff2") format("woff2");
+}
+@font-face {
+    font-family: "shabnam";
+    src: url("../font/Shabnam.ttf") format("ttf"),
+    url("../font/Shabnam.woff") format("woff"),
+    url("../font/Shabnam.woff2") format("woff2");
+}
+@font-face {
+    font-family: "lalezar";
+    src: url("../font/Lalezar-Regular.ttf") format("ttf"),
+    url("../font/Lalezar-Regular.woff") format("woff"),
+    url("../font/Lalezar-Regular.woff2") format("woff2");
+}

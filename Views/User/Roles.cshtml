@@ -1,0 +1,31 @@
+﻿@model IEnumerable<hanmudo.Models.RoleContent>
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<partial name="~/Views/Shared/UserPanelTopBar.cshtml" /><br />
+<h1 style="text-align: center;font-family: shabnam;font-weight: bold;font-size: 1.4rem">@ViewBag.titl</h1>
+<br><br><br>
+<div class="roleContent_div">
+    @foreach (var item in Model)
+{
+    if (item.Type==1)
+    {
+        <h2>@item.Text</h2>
+    }
+    if (item.Type==2)
+    {
+        <p>@item.Text</p>
+    }
+    if (item.Type==3)
+    {
+          <img class="" src="@System.Text.Encoding.Default.GetString(item.img)" />
+    }
+    if (item.Type==4)
+    {
+           <video  controlsList="nodownload" autostart="false" class="video_darian" controls>
+                <source src="/galery/roleContent/@item.Text" type="video/mp4">
+            </video>
+    }
+}
+</div>

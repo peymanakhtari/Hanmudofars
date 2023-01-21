@@ -1,0 +1,1044 @@
+body {
+  background-color: rgb(252, 252, 252);
+}
+
+/*------------------------------------------------------------- */
+/* -------------------------menu ------------------------- */
+a {
+  text-decoration: none;
+}
+
+.offcanvas {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+.menu {
+  padding: 0;
+}
+
+.menu li {
+  width: 100%;
+}
+
+.menu li button:hover {
+  background-color: #e40101;
+}
+
+.menu li button {
+  width: 100%;
+  background-color: rgb(10, 8, 8);
+  padding: 8px;
+  color: white;
+  padding: 1rem;
+}
+
+.menuButton {
+  display: block;
+  border: 0;
+}
+
+.menu li a:hover {
+  background-color: #e40101;
+}
+
+.menu li a {
+  width: 100%;
+  display: block;
+  background-color: rgb(10, 8, 8);
+  padding: 1rem;
+  color: white;
+}
+
+.menu li div {
+  display: none;
+}
+
+#expand_menu_container li div {
+  display: none;
+}
+
+.menu li div ul {
+  padding: 0;
+}
+
+.menu li div ul li a {
+  background-color: rgb(48, 48, 48);
+  display: block;
+}
+
+div.offcanvas-body {
+  padding: 0;
+}
+
+#menuExpand {
+  display: flex;
+  font-family: iraniansans;
+}
+
+#menuExpand li {
+  width: 25%;
+  z-index: 10;
+}
+
+/* #menuExpand li:nth-child(5) {
+  width: 15%;
+} */
+
+@media screen and (max-width: 991px) {
+  #defashakhsi_expandmenu {
+    font-size: 12px;
+  }
+}
+
+#menuExpand button {
+  width: 100%;
+  padding: 17px;
+  background-color: rgb(10, 8, 8);
+  color: white;
+}
+
+.menu_single_link {
+  width: 100%;
+  padding: 17px;
+  background-color: rgb(10, 8, 8);
+  color: white;
+  display: block;
+}
+
+.menu_single_link:hover {
+  background-color: #e40101;
+  color: white;
+}
+
+#menuExpand button:hover {
+  background-color: #e40101;
+}
+
+#expand_menu_container {
+  width: 100%;
+  height: 50px;
+  display: none;
+}
+
+#menuExpand ul {
+  background-color: rgb(10, 8, 8);
+}
+
+#menuExpand ul li {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+#menuExpand div li:hover {
+  background-color: #e40101;
+}
+
+#menuExpand ul a {
+  color: white;
+  display: block;
+}
+
+.menu_icon:hover {
+  color: rgb(0, 0, 0);
+  font-size: 1.45rem;
+}
+
+.menu_icon {
+  font-size: 1.3rem;
+}
+
+.main_container {
+  position: relative;
+  text-align: center;
+  background-color: white;
+}
+
+#fonix img {
+  width: 70%;
+}
+
+#fonix {
+  margin-top: 1rem;
+}
+
+/*----------------------------menu---------------------------- */
+/*------------------------------------------------------------- */
+
+/*------------------------------------------------------------- */
+/*----------------------------main page content---------------------------- */
+
+#main_video {
+  width: 90%;
+  margin: auto;
+}
+
+.top_content {
+  width: 100%;
+  height: 4rem;
+  text-align: right;
+}
+
+.user_login_link {
+  width: 10rem;
+  height: 2.7rem;
+  float: left;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: IranianSans;
+}
+
+.user_Logout_link {
+  width: 10rem;
+  height: 2.5rem;
+  float: left;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: IranianSans;
+  border: 1px #000 solid;
+}
+
+#self_defence {
+  float: left;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-family: iraniansans;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#self_defence_animation {
+  display: none;
+  float: left;
+  margin-left: 2rem;
+}
+
+#self_defence:hover {
+  opacity: .5;
+}
+
+#main_paragragh {
+  font-size: 20px;
+  font-family: bkoodak;
+  background: url("/img/background_main_paragragh.png");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center 1.5rem;
+  line-height: 2rem;
+  min-height: 25rem;
+  text-align: justify;
+  padding: 0 2rem;
+}
+
+#takhtjamshid {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  object-fit: cover;
+  width: 100%;
+  min-width: 600px;
+  opacity: 0.35;
+}
+
+.title_event {
+  text-align: right;
+  margin: 2rem 2rem 0rem 0;
+  font-size: 1.2rem;
+  font-family: shabnam;
+  border: 1px solid rgb(37, 37, 37);
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 5px;
+  color: black;
+}
+
+.title_event:hover {
+  background-color: rgb(235, 235, 235);
+  color: black;
+}
+
+.inform_flex_div {
+  margin: 1rem;
+}
+
+.event_card {
+  width: 25rem !important;
+  margin: 2rem;
+  align-items: center;
+  text-align: right;
+}
+
+.event_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.event_card .card-title {
+  font-family: shabnam;
+  font-weight: bolder;
+  text-align: center;
+  padding: .8rem;
+  padding-top: 1.2rem;
+  max-height: 4rem;
+}
+
+.event_card .card-text {
+  font-family: bkoodak;
+  text-align: justify;
+  line-height: 1.3rem;
+}
+
+.event_card .card-link {
+  margin-top: 1rem;
+  font-family: iraniansans;
+}
+
+.event_card h5 {
+  line-height: 25px;
+}
+
+.footer {
+  background-color: rgb(116, 116, 116);
+  margin: 1rem;
+  padding: 8px;
+  padding-top: 1.2rem;
+  color: white;
+  font-family: iraniansans;
+  border-radius: 5px;
+}
+
+.footer_user {
+  background-color: rgb(252, 252, 252);
+  margin: 1rem;
+  padding: 8px;
+  padding-top: 1.2rem;
+  color: rgb(0, 0, 0);
+  font-family: shabnam;
+  border-radius: 5px;
+  border: 1px black solid;
+  line-height: 1.8rem;
+  text-align: justify;
+  font-size: .95rem;
+}
+
+.footer a {
+  color: white;
+  padding-top: 0rem;
+}
+
+.footer a:hover {
+  color: red;
+}
+
+.footer p {
+  margin-top: 1rem;
+  line-height: 1.4rem;
+}
+
+.footer img {
+  width: 30px;
+  margin: 0 4px;
+}
+
+.footer span {
+  margin-right: 15px;
+}
+
+/*----------------------------main page content---------------------------- */
+/*------------------------------------------------------------- */
+.representer {
+  font-family: iraniansans;
+  background-color: #ffffff;
+  width: 17rem;
+  margin: auto;
+  line-height: 1.3rem;
+  font-size: 14px;
+}
+
+.representer img {
+  width: 100%;
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.representer div {
+  text-align: center;
+}
+
+.representer span {
+  display: block;
+  margin-top: 6px;
+}
+
+.member_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.members {
+  margin: 16px 6px;
+  font-family: iraniansans;
+  font-size: 12px;
+}
+
+.members img {
+  width: 10rem;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.members span {
+  display: block;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.texteffect {
+  width: 20rem;
+  height: 3rem;
+  background-color: rgb(245, 245, 245);
+  margin: 0 auto 2rem auto;
+  font-family: shabnam;
+  display: block;
+  padding-top: 12px;
+  margin-top: 0.8rem;
+  border: 1px black solid;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s ease-in-out;
+  transition: transform 0.35s ease-in-out;
+
+}
+
+.texteffect:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.15, 1.15);
+}
+
+#texteffect_span {
+  line-height: 1.5rem;
+  font-size: 1.3rem;
+  font-family: lalezar;
+  color: red;
+}
+
+.club {
+  width: 20rem;
+  margin: auto;
+  border: 1px rgb(180, 178, 178) solid;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.men_club {
+  text-align: center;
+}
+
+.club_content {
+  display: flex;
+}
+
+.club_content img {
+  width: 8rem;
+}
+
+.club_title {
+  width: 100%;
+  background-color: #21A049;
+  color: white;
+  padding: .8rem;
+  font-family: shabnam;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.club_text {
+  margin-right: 6px;
+  display: block;
+  font-family: bkoodak;
+  line-height: 1.4;
+}
+
+.club_text:first-child {
+  margin-top: 6px;
+}
+
+.club_text:last-child {
+  margin-bottom: 6px;
+}
+
+.club_text_div {
+  width: 14rem;
+}
+
+.btn_club {
+  padding: 1rem;
+  border: 1px rgb(87, 87, 87) solid;
+  background-color: rgb(255, 255, 38);
+  border-radius: 18px;
+  box-shadow: 3px 3px 4px gray;
+}
+
+.hanmudo_sub {
+  direction: rtl;
+  font-family: iraniansans;
+  margin: 3rem 1rem 0 0;
+  display: block;
+  color: white;
+  font-weight: bold;
+}
+
+.hanmudo_sub span {
+  background-image: linear-gradient(to right, rgb(141, 0, 0), rgb(134, 134, 0));
+  ;
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  border: 1px black solid;
+}
+
+.hanmudo_sub:hover {
+  color: rgb(207, 0, 0);
+}
+
+.inform_div {
+  max-width: 25rem;
+  width: 86%;
+  margin: auto;
+  border: 1px rgb(206, 206, 206) solid;
+  border-radius: 3px;
+  position: relative
+}
+
+.inform_div p {
+  padding: 1rem !important;
+}
+
+.inform_div img {
+  width: 100%;
+}
+
+.inform_div h3 {
+  font-family: shabnam;
+  font-weight: bold;
+  padding: 12px;
+  background-color: white;
+  color: rgb(255, 0, 0);
+}
+
+.inform_div h4 {
+  padding: .8rem;
+  font-weight: bold;
+  font-family: shabnam;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.inform_div h3 img {
+  width: 5rem;
+  position: relative;
+  right: 5rem;
+}
+
+.blink_me {
+  animation: blinker 1.5s linear infinite;
+  position: absolute;
+  top: 3rem;
+  border: 3px solid red;
+  padding: 14px;
+  right: 4rem;
+  width: 8rem;
+  transform: rotate(-20deg);
+  border-radius: 6px;
+  font-family: iraniansans;
+  font-size: 1.4rem;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.inform_div p {
+  font-family: bkoodak;
+  line-height: 1.4rem;
+  text-align: justify;
+  padding: 8px;
+}
+
+.phone_icon {
+  color: blue;
+}
+
+.contant_info {
+  margin: 3rem 3rem 2rem 0;
+
+}
+
+.contant_info a:hover {
+  color: #ff0000 !important;
+}
+
+.contant_info a {
+  color: black;
+  font-family: bkoodak;
+}
+
+.contant_info p {
+  font-size: 1rem;
+  margin-top: 1rem;
+  font-family: shabnam;
+}
+
+
+#Logo_shafaf {
+  width: 50%;
+  margin-top: 1rem;
+}
+
+#english_text {
+  font-size: 1.4rem;
+  text-align: justify;
+  margin: 1rem;
+  line-height: 2.5rem;
+  direction: ltr;
+  margin-top: 0;
+}
+
+.btn_english {
+  width: 6.6rem;
+  border: 1px rgb(121, 121, 121) solid;
+  margin: 1.5rem .5rem 0 0;
+  font-size: .9rem;
+  color: black;
+  background-color: rgb(245, 245, 245);
+  border-radius: 8px;
+  text-align: center;
+  padding: 8px 0;
+  background-color: #7a0000;
+  color: white;
+}
+
+.btn_english:hover {
+  color: black;
+  background-color: #c72b2b;
+}
+
+.photo_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo_div img {
+  margin: 1rem;
+  border-radius: 4px;
+}
+
+.video_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.video_archive_item {
+  width: 40%;
+  margin: 5%;
+}
+
+.btn_belt img {
+  width: 2rem;
+  position: absolute;
+  top: 10px;
+  left: .7rem;
+}
+
+.btn_belt span {
+  position: absolute;
+  top: 14px;
+  right: 1rem;
+  color: black;
+}
+
+.btn_belt {
+  border: 1px black solid;
+  margin-right: 1.5rem;
+  background-color: rgb(247, 247, 247);
+  border-radius: 1rem;
+  font-family: iraniansans;
+  font-weight: bold;
+  width: 10.5rem;
+  height: 3rem;
+  margin-top: 1rem;
+  position: relative;
+  font-size: 15px;
+}
+
+.btn_belt:hover {
+  background-color: rgb(124, 124, 124);
+}
+
+.user_login_title {
+  text-align: center;
+  font-family: shabnam;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 2px 2px gray;
+}
+
+.input_login {
+  border-radius: 2rem;
+  background-color: rgb(233, 233, 233);
+  width: 14rem;
+  padding: 8px 1rem;
+  border: 1px solid rgb(94, 94, 94);
+}
+
+.input_login:focus {
+  outline: none;
+}
+
+.user_info {
+  margin-right: 2rem;
+  line-height: 1.9rem;
+  font-family: shabnam;
+}
+
+.user_info p span {
+  font-weight: bold;
+  font-family: bkoodak;
+}
+
+.user_info h3 {
+  font-weight: bold;
+}
+
+.event_detail h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: shabnam;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 24px;
+  padding: 6px;
+}
+
+.event_detail img {
+  width: 70%;
+  display: block;
+  margin: auto;
+  border-radius: 4px;
+
+}
+
+.event_video {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+.event_detail p {
+  font-family: bkoodak;
+  margin: 3rem;
+  text-align: justify;
+  line-height: 26px;
+  font-size: 18px;
+  margin-top: 1.5rem !important;
+
+}
+
+@media screen and (max-width: 576px) {
+  .event_detail img {
+    width: 95%;
+  }
+
+  .event_video {
+    width: 85%;
+  }
+
+  .event_detail p {
+    margin: 1rem;
+  }
+}
+
+.tutorials h1 {
+  text-align: center;
+  font-family: shabnam;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.tutorials {
+  text-align: center;
+}
+
+.tutorials a {
+  border: 1px black solid;
+  background-color: rgb(247, 247, 247);
+  color: #000;
+  border-radius: 1rem;
+  font-family: iraniansans;
+  font-weight: bold;
+  height: 3rem;
+  position: relative;
+  display: block;
+  width: 9rem;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 14px;
+  margin: auto;
+
+}
+
+.tutorials a:hover {
+  background-color: rgb(124, 124, 124);
+}
+
+@media screen and (min-width: 768px) {
+  .tutorials {
+    text-align: right;
+  }
+
+  .tutorials a {
+    margin-right: 0;
+  }
+
+  .tutorials h1 {
+    text-align: right;
+  }
+}
+
+.teknik {
+  min-height: 25rem;
+  margin-top: 1rem;
+}
+
+.teknik a {
+  border: 1px black solid;
+  background-color: rgb(247, 247, 247);
+  border-radius: 1rem;
+  font-family: iraniansans;
+  font-weight: bold;
+  height: 3rem;
+  position: relative;
+  display: block;
+  width: 12rem;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 14px;
+  margin: 1rem;
+  color: black;
+  margin-right: 2rem;
+}
+
+.teknik a:hover {
+  background-color: rgb(124, 124, 124);
+}
+
+.teknik p {
+  margin: 1rem;
+  font-family: shabnam;
+  margin-right: 2rem;
+}
+
+
+.teknik_content img {
+  width: 85%;
+  margin: 1rem auto 1rem auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.video_darian {
+  margin: 4rem auto 4rem auto;
+  display: block;
+  width: 90%;
+  margin: auto;
+  margin-top: .8rem;
+  width: 85%;
+  max-width: 36rem;
+}
+
+#selfdefence_div div {
+  width: 97%;
+  margin: auto;
+}
+
+#selfdefence_div h3 {
+  margin: 1rem;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 1.2rem;
+  font-family: shabnam;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#selfdefence_div p {
+  font-family: bkoodak;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  margin: 2rem;
+  margin-bottom: .8rem;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+#img_content_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.img_content {
+  width: 85% !important;
+  margin: 8px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .img_content {
+    width: 47% !important;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .img_content {
+    width: 30% !important;
+  }
+}
+
+.Content_title {
+  margin: 1rem 2rem 1rem auto;
+  text-align: right;
+  font-family: shabnam;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.hanmudo_content{
+    user-select:none;
+}
+.hanmudo_content h1 {
+    font-family: shabnam;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hanmudo_content img {
+  margin: 2rem auto;
+  display: block
+}
+
+.hanmudo_content p {
+  font-family: bkoodak;
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  text-align: justify;
+  padding: 1rem;
+}
+
+.user_info_count {
+  background-color: red;
+  color: white;
+  position: relative;
+  bottom: 2.1px;
+  border-radius: 16px;
+  margin-right: 4px;
+  font-family: bkoodak;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  padding-top: 4px;
+}
+
+.Info_User_div {
+  border: 1px rgb(82, 82, 82) solid;
+  position: relative;
+  margin: 2rem;
+  padding: 12px;
+  border-radius: 5px;
+  background-color: rgb(253, 253, 253);
+}
+
+.Info_User_div span {
+  position: absolute;
+  left: 1rem;
+  padding: 10px;
+  top: 1rem;
+  color: white;
+  font-family: shabnam;
+  border-radius: 12px;
+}
+
+.Info_User_div h2 {
+  text-align: right;
+  font-family: shabnam;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 3rem;
+  line-height: 2.5rem;
+}
+
+.Info_User_div button {
+  font-family: iraniansans;
+}
+
+.Info_User_div p {
+  font-family: bkoodak;
+  font-size: 18px;
+  line-height: 1.6rem;
+  text-align: justify;
+}
+
+
+
+.roleContent_div h2 {
+  text-align: center;
+  font-family: shabnam;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.roleContent_div p {
+  font-family: bkoodak;
+  line-height: 1.7rem;
+  font-size: 1.1rem;
+  text-align: justify;
+  margin: 1rem 1rem;
+}
+
+.roleContent_div img {
+  margin: 2rem auto !important;
+  display: block;
+  width: 85%;
+  max-width: 36rem !important;
+}
+
+.roleContent_div video {
+  margin:1rem auto;
+}
+
+@media screen and (min-width: 768px) {
+  .roleContent_div p {
+    margin: 1rem 3.5rem;
+    font-size: 1.3rem;
+    line-height: 2rem;
+  }
+}

@@ -1,0 +1,32 @@
+﻿@model List<hanmudo.Models.User>
+@{
+    ViewData["Title"] = "StudentSeenInfo";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<div style="width: 90%;margin: auto;">
+
+    <table id="myTable" class="table table-striped ">
+        <thead>
+            <tr>
+                <th>
+                    نام
+                </th>
+             
+             
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                  
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

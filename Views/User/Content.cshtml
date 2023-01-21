@@ -1,0 +1,47 @@
+﻿@model List<hanmudo.Models.ContentTeknik>
+@{
+    ViewData["Title"] = ViewBag.tittle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<partial name="~/Views/Shared/UserPanelTopBar.cshtml" />
+
+<div class="teknik_content">
+    <button style="font-family: iraniansans;margin-right:2.2rem ;" class="btn btn-dark "
+        onclick="history.back()">بازگشت</button>
+    <h3 class="Content_title">@ViewBag.tittle </h3>
+    <div id="img_content_div">
+        @foreach (var item in Model)
+        {
+            if (item.Type == 2)
+            {
+                <img class="img_content" src="@System.Text.Encoding.Default.GetString(item.img)" />
+            }
+        }
+    </div>
+    @if (Model.Any(c => c.Type == 3))
+    {
+        <br>
+        foreach (var item in Model.Where(c => c.Type == 3))
+        {
+            <video style="" controlsList="nodownload" autostart="false" class="video_darian" controls>
+                <source src="/galery/contentTeknik/@item.Text" type="video/mp4">
+            </video>
+        }
+    }
+    @if (Model.Any(c => c.Type == 1))
+    {
+        <br><br>
+        <h3 class="Content_title">توضیحات تکنیک</h3>
+    }
+    <div class="text_content_div">
+        @foreach (var item in Model)
+        {
+            if (item.Type == 1)
+            {
+                <p style="margin: .8rem 2rem;font-family: bkoodak;font-size: 1.1rem;line-height: 1.7rem;text-align: justify;">
+                    @item.Text</p>
+            }
+        }
+    </div>
+
+</div>
